@@ -29,7 +29,7 @@ public class TicketService {
         this.userService = userService;
     }
 
-    public Ticket createTicket(int userId, List<Long> showSeatIds){
+    public Ticket createTicket(Long userId, List<Long> showSeatIds){
         Ticket ticket = new Ticket();
         User user = userService.findUserById(userId);
         List<ShowSeat> showSeats = new ArrayList<>();
