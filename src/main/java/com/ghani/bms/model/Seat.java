@@ -13,8 +13,8 @@ import lombok.Setter;
 @Entity
 public class Seat extends BaseClass{
     private String seatNumber;
-    private int row;
-    private int column;
+    private int rowNumber1;
+    private int colNumber1;
     @Enumerated(EnumType.STRING)
     private SeatStatus seatStatus;
     @Enumerated(EnumType.STRING)

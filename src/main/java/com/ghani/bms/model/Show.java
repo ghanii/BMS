@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name = "bms_show")
 public class Show extends BaseClass{
     private String showName;
     private LocalDateTime startTime;
