@@ -6,6 +6,8 @@ import com.ghani.bms.repository.SeatRepository;
 import com.ghani.bms.repository.ShowSeatRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ShowSeatService {
 
@@ -21,5 +23,15 @@ public class ShowSeatService {
 
     public ShowSeat findShowSeatById(long id) {
         return showSeatRepository.findById(id).orElseThrow(()->new ShowSeatNotFoundException("ShowSeat not found for id : "+id));
+    }
+
+    public ShowSeat updateShowSeat(ShowSeat showSeat) {
+        Optional<ShowSeat> showSeatOptional = showSeatRepository.findById(showSeat.getId());
+        ShowSeat oldShowSeat = null;
+        if(showSeatOptional.isPresent()) {
+            oldShowSeat = showSeatOptional.get();
+        }
+        oldShowSeat.setShowSeatStatus(showSeat.getShowSeatStatus());
+        return showSeatRepository.save(oldShowSeat);
     }
 }
